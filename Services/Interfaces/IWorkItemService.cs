@@ -4,5 +4,5 @@ namespace TFS_UI_mvvm.Services.Interfaces;
 
 public interface IWorkItemService
 {
-    Task<List<WorkItemModel>> GetWorkItemsAsync();
+    Task<List<WorkItemModel>> GetAllWorkItemsAsync(string query);
 }

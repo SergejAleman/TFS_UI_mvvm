@@ -11,10 +11,10 @@ public class WorkItemService : IWorkItemService
 {
     private readonly string tfsUrl = "https://automatix:8081/tfs/TLCollection/";
     private readonly string teamProject = "TL";
-    private readonly string? query;
+    //private readonly string? query;
 
 
-    public async Task<List<WorkItemModel>> GetWorkItemsAsync()
+    public async Task<List<WorkItemModel>> GetAllWorkItemsAsync(string query)
     {
         VssConnection connection = new VssConnection(new Uri(tfsUrl), new VssCredentials());
         WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();

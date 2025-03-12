@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Hosting;
 using TFS_UI_mvvm.ViewModels;
 using TFS_UI_mvvm.Views;
-using TFS_UI_mvvm.Views.MainWindow;
 using System.Windows;
+using TFS_UI_mvvm.Services;
+using TFS_UI_mvvm.ViewModels.WindowViewModels;
+using TFS_UI_mvvm.Views.WindowViews;
 
 namespace TFS_UI_mvvm;
 
@@ -17,6 +19,7 @@ public partial class App : Application
             .ConfigureServices((hostContext, services) => services
                 .AddView()
                 .AddViewModel()
+                .AddService()
             )
             .Build();
     }

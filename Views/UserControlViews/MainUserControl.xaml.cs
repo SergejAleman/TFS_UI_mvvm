@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TFS_UI_mvvm.Views.UserControls
+namespace TFS_UI_mvvm.Views.UserControlViews
 {
     /// <summary>
-    /// Interaction logic for UserControlA.xaml
+    /// Interaction logic for MainUserControl.xaml
     /// </summary>
-    public partial class UserControlA : UserControl
+    public partial class MainUserControl : Window
     {
-        public UserControlA()
+        public MainUserControl()
         {
             InitializeComponent();
         }
