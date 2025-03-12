@@ -8,6 +8,6 @@ namespace TFS_UI_mvvm.Services;
 public static class ServiceRegistrator
 {
     public static IServiceCollection AddService(this IServiceCollection services) => services
-        .AddSingleton<IWorkItemService>(new WorkItemService())
+        .AddSingleton<IWorkItemService, WorkItemService>()
         ;
 }

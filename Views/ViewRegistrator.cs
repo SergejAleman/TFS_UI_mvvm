@@ -1,13 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TFS_UI_mvvm.Views.WindowViews;
+using TFS_UI_mvvm.Views.UserControlViews;
 
 namespace TFS_UI_mvvm.Views;
 
 public static class ViewRegistrator
 {
     public static IServiceCollection AddView(this IServiceCollection services) => services
-        .AddSingleton<WindowViews.MainWindow>()
-        .AddSingleton<UserControlViews.MainUserControl>()
-        .AddTransient<UserControlViews.UserControlA>()
-        .AddTransient<UserControlViews.UserControlB>()
+        .AddTransient<MainWindow>()
+        .AddTransient<MainUserControl>()
+        .AddTransient<UserControlA>()
+        .AddTransient<UserControlB>()
         ;
 }

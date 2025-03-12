@@ -5,7 +5,6 @@ using TFS_UI_mvvm.Views;
 using System.Windows;
 using TFS_UI_mvvm.Services;
 using TFS_UI_mvvm.Views.WindowViews;
-using TFS_UI_mvvm.ViewModels.WindowViewModels;
 
 namespace TFS_UI_mvvm;
 
@@ -27,10 +26,13 @@ public partial class App : Application
 
     protected override async void OnStartup(StartupEventArgs e)
     {
+
         await AppHost!.StartAsync();
-        var navigationViewModel = AppHost.Services.GetRequiredService<NavigationViewModel>();
-        var mainWindow = new MainWindow(navigationViewModel);
+        //var navigationViewModel = AppHost.Services.GetRequiredService<NavigationViewModel>();
+        //var mainWindow = new MainWindow(navigationViewModel);
+        var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
         mainWindow.Show();
+
         base.OnStartup(e);
     }
 
