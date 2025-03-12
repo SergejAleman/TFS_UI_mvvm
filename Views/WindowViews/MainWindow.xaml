@@ -28,6 +28,11 @@
             Orientation="Horizontal">
             <Button
                 Margin="5"
+                Command="{Binding SwitchToMainCommand}"
+                Content="Show Main"
+                Style="{DynamicResource BaseButtonStyle}" />
+            <Button
+                Margin="5"
                 Command="{Binding SwitchToACommand}"
                 Content="Show A"
                 Style="{DynamicResource BaseButtonStyle}" />
@@ -39,7 +44,7 @@
         </StackPanel>
 
         <Grid Grid.Row="1">
-            <ContentControl HorizontalAlignment="Center" Content="{Binding CurrentView}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+            <ContentControl Content="{Binding CurrentView}" />
         </Grid>
     </Grid>
 </Window>
