@@ -10,11 +10,64 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid Background="LightBlue">
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="16"
-            Text="{Binding Title}" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Button
+                x:Name="BtnLoadWorkItems"
+                Width="100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Command="{Binding LoadWorkItemsCommand}"
+                Content="Load WorkItems" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <DataGrid
+                Margin="10"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                IsReadOnly="True"
+                ItemsSource="{Binding WorkItems}"
+                SelectedItem="{Binding SelectedWorkItem, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="Auto"
+                        Binding="{Binding Id}"
+                        Header="ID" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Title}"
+                        Header="Title" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock
+                x:Name="countTestCases"
+                Width="100"
+                Height="32"
+                Margin="10"
+                HorizontalAlignment="Left" />
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <TextBlock
+                Margin="10"
+                FontSize="14"
+                FontWeight="Bold"
+                Text="{Binding ItemsCount}" />
+
+            <ScrollViewer Height="150" VerticalScrollBarVisibility="Auto">
+                <TextBlock
+                    Margin="10"
+                    Text="{Binding SummaryText}"
+                    TextWrapping="Wrap" />
+            </ScrollViewer>
+        </StackPanel>
     </Grid>
 </UserControl>
