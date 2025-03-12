@@ -11,8 +11,6 @@ public class WorkItemService : IWorkItemService
 {
     private readonly string tfsUrl = "https://automatix:8081/tfs/TLCollection/";
     private readonly string teamProject = "TL";
-    //private readonly string? query;
-
 
     public async Task<List<WorkItemModel>> GetAllWorkItemsAsync(string query)
     {
@@ -27,7 +25,7 @@ public class WorkItemService : IWorkItemService
         if (queryResult.WorkItems.Any())
         {
             var ids = queryResult.WorkItems.Select(wi => wi.Id).ToArray();
-            var fields = new[] { "System.Id", "System.Title", "System.State" };
+            var fields = new[] { "System.Id", "System.Title", "System.Description" };
             var items = await witClient.GetWorkItemsAsync(ids, fields);
             foreach (var item in items)
             {
@@ -37,7 +35,7 @@ public class WorkItemService : IWorkItemService
                 workItemModels.Add(new WorkItemModel(
                     item.Id.Value,
                     item.Fields["System.Title"]?.ToString() ?? "No Title",
-                    item.Fields["System.State"]?.ToString() ?? "Unknown"
+                    item.Fields.ContainsKey("System.Description") ? item.Fields["System.Description"]?.ToString() ?? "No Description" : "No Description"
                     ));
             }
         }

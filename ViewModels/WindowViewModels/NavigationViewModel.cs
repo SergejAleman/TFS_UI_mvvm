@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Input;
 using TFS_UI_mvvm.Services.Interfaces;
 using TFS_UI_mvvm.ViewModels.BaseClasses;
 using TFS_UI_mvvm.ViewModels.UserControlViewModels;
@@ -24,9 +25,9 @@ public class NavigationViewModel : BaseViewModel
 
 
     #region Commands
-    public RelayCommand? SwitchToMainCommand { get; }
-    public RelayCommand? SwitchToACommand { get; }
-    public RelayCommand? SwitchToBCommand { get; }
+    public ICommand? SwitchToMainCommand { get; }
+    public ICommand? SwitchToACommand { get; }
+    public ICommand? SwitchToBCommand { get; }
     #endregion
 
 
