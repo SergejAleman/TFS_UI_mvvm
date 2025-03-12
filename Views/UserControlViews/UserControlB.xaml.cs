@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TFS_UI_mvvm.Views.UserControls
+namespace TFS_UI_mvvm.Views.UserControlViews
 {
     /// <summary>
     /// Interaction logic for UserControlB.xaml

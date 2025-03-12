@@ -5,8 +5,9 @@ namespace TFS_UI_mvvm.ViewModels;
 public static class ViewModelRegistrator
 {
     public static IServiceCollection AddViewModel(this IServiceCollection services) => services
-        .AddSingleton<MainWindowViewModel>()
+        .AddSingleton<WindowViewModels.NavigationViewModel>()
+        .AddSingleton<UserControlViewModels.MainUserControlViewModel>()
         .AddSingleton<UserControlViewModels.UserControlA_ViewModel>()
-        .AddTransient<UserControlViewModels.UserControlB_ViewModel>()
+        .AddSingleton<UserControlViewModels.UserControlB_ViewModel>()
         ;
 }
