@@ -6,9 +6,12 @@
     xmlns:wv="clr-namespace:TFS_UI_mvvm.Views.WindowViews"
     xmlns:wvm="clr-namespace:TFS_UI_mvvm.ViewModels.WindowViewModels">
 
-
-    <DataTemplate DataType="{x:Type wvm:MainWindowViewModel}">
+    <DataTemplate DataType="{x:Type wvm:NavigationViewModel}">
         <wv:MainWindow />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ucvm:MainUserControlViewModel}">
+        <ucv:MainUserControl />
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type ucvm:UserControlA_ViewModel}">

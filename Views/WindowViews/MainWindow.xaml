@@ -9,32 +9,37 @@
     Title="{Binding Title}"
     Width="800"
     Height="450"
-    d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel,
-                                     IsDesignTimeCreatable=True}"
     mc:Ignorable="d">
 
-    <Grid>
-        <StackPanel>
-            <StackPanel
-                Margin="10"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal">
-                <Button
-                    Margin="5"
-                    Command="{Binding SwitchToACommand}"
-                    Content="Show A"
-                    Style="{DynamicResource BaseButtonStyle}" />
-                <Button
-                    Margin="5"
-                    Command="{Binding SwitchToBCommand}"
-                    Content="Show B"
-                    Style="{DynamicResource BaseButtonStyle}" />
-            </StackPanel>
+    <Window.DataContext>
+        <vm:NavigationViewModel />
+    </Window.DataContext>
 
-            <ContentControl
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Content="{Binding CurrentView}" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Margin="10"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                Margin="5"
+                Command="{Binding SwitchToACommand}"
+                Content="Show A"
+                Style="{DynamicResource BaseButtonStyle}" />
+            <Button
+                Margin="5"
+                Command="{Binding SwitchToBCommand}"
+                Content="Show B"
+                Style="{DynamicResource BaseButtonStyle}" />
         </StackPanel>
+
+        <Grid Grid.Row="1">
+            <ContentControl HorizontalAlignment="Center" Content="{Binding CurrentView}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+        </Grid>
     </Grid>
 </Window>

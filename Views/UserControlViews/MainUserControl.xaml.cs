@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TFS_UI_mvvm.Views.UserControlViews
@@ -17,7 +18,7 @@ namespace TFS_UI_mvvm.Views.UserControlViews
     /// <summary>
     /// Interaction logic for MainUserControl.xaml
     /// </summary>
-    public partial class MainUserControl : Window
+    public partial class MainUserControl : UserControl
     {
         public MainUserControl()
         {
