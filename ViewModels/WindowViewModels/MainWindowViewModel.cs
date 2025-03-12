@@ -9,12 +9,8 @@ namespace TFS_UI_mvvm.ViewModels.WindowViewModels;
 public class MainWindowViewModel : BaseViewModel
 {
     public string Title { get; set; } = "MyTitle";
-
     private readonly IServiceProvider? serviceProvider;
-
-    public RelayCommand? SwitchToACommand { get; }
-    public RelayCommand? SwitchToBCommand { get; }
-
+    
     private UserControl? currentView;
 
     public UserControl? CurrentView
@@ -28,6 +24,13 @@ public class MainWindowViewModel : BaseViewModel
     }
 
 
+    #region Commands
+    public RelayCommand? SwitchToACommand { get; }
+    public RelayCommand? SwitchToBCommand { get; }
+    #endregion
+
+
+    #region Constructors
     //Empty constructor for design time
     public MainWindowViewModel()
     {
@@ -44,9 +47,11 @@ public class MainWindowViewModel : BaseViewModel
         SwitchToBCommand = new RelayCommand(_ => ShowUserControlB());
 
         ShowUserControlA();
-    }
+    } 
+    #endregion
 
 
+    #region Methods
     private void ShowUserControlA()
     {
         if (serviceProvider == null) throw new InvalidOperationException("ServiceProvider is required at runtime");
@@ -68,5 +73,6 @@ public class MainWindowViewModel : BaseViewModel
     private bool IsInDesignMode()
     {
         return System.ComponentModel.DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject());
-    }
+    } 
+    #endregion
 }

@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ucv="clr-namespace:TFS_UI_mvvm.Views.UserControlViews"
+    xmlns:ucvm="clr-namespace:TFS_UI_mvvm.ViewModels.UserControlViewModels"
+    xmlns:wv="clr-namespace:TFS_UI_mvvm.Views.WindowViews"
+    xmlns:wvm="clr-namespace:TFS_UI_mvvm.ViewModels.WindowViewModels">
+
+
+    <DataTemplate DataType="{x:Type wvm:MainWindowViewModel}">
+        <wv:MainWindow />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ucvm:UserControlA_ViewModel}">
+        <ucv:UserControlA />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ucvm:UserControlB_ViewModel}">
+        <ucv:UserControlB />
+    </DataTemplate>
+
+</ResourceDictionary>
