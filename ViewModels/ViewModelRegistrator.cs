@@ -1,13 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TFS_UI_mvvm.ViewModels.WindowViewModels;
+using TFS_UI_mvvm.ViewModels.UserControlViewModels;
 
 namespace TFS_UI_mvvm.ViewModels;
 
 public static class ViewModelRegistrator
 {
     public static IServiceCollection AddViewModel(this IServiceCollection services) => services
-        .AddSingleton<WindowViewModels.NavigationViewModel>()
-        .AddSingleton<UserControlViewModels.MainUserControlViewModel>()
-        .AddSingleton<UserControlViewModels.UserControlA_ViewModel>()
-        .AddSingleton<UserControlViewModels.UserControlB_ViewModel>()
+        .AddSingleton<NavigationViewModel>()
+        .AddSingleton<MainUserControlViewModel>()
+        .AddSingleton<UserControlA_ViewModel>()
+        .AddSingleton<UserControlB_ViewModel>()
         ;
 }

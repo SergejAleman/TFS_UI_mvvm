@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using TFS_UI_mvvm.Services.Interfaces;
 using TFS_UI_mvvm.ViewModels.BaseClasses;
 using TFS_UI_mvvm.ViewModels.UserControlViewModels;
 using TFS_UI_mvvm.Views.UserControlViews;
@@ -7,7 +8,7 @@ namespace TFS_UI_mvvm.ViewModels.WindowViewModels;
 
 public class NavigationViewModel : BaseViewModel
 {
-    public string Title { get; set; } = "MyTitle";
+    private readonly IServiceProvider serviceProvider;
 
     private object? currentView;
 
@@ -30,11 +31,13 @@ public class NavigationViewModel : BaseViewModel
 
 
     #region Constructor
-    public NavigationViewModel()
+    public NavigationViewModel(IServiceProvider serviceProvider)
     {
-        CurrentView = new MainUserControlViewModel();
-        
-        SwitchToMainCommand = new RelayCommand(_ => CurrentView = new MainUserControlViewModel());
+        this.serviceProvider = serviceProvider;
+
+        CurrentView = serviceProvider.GetRequiredService<MainUserControl>();
+
+        SwitchToMainCommand = new RelayCommand(_ => CurrentView = serviceProvider.GetRequiredService<MainUserControl>());
         SwitchToACommand = new RelayCommand(_ => CurrentView = new UserControlA_ViewModel());
         SwitchToBCommand = new RelayCommand(_ => CurrentView = new UserControlB_ViewModel());
     }
